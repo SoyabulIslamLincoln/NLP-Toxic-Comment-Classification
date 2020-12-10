@@ -1,14 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Nov  7 23:10:55 2020
-
-@author: Sayantan
-"""
-
-"""
-Dataset link : kaggle jigsaw toxic comments Classification Challenge
-"""
-
 import os, sys
 import numpy as np
 import pandas as pd
@@ -24,8 +13,8 @@ from sklearn.metrics import  roc_auc_score
 
 
 #Loading the Train_test data
-train = pd.read_csv('jigsaw-toxic-comment-classification-challenge/train/train.csv')
-test = pd.read_csv('jigsaw-toxic-comment-classification-challenge/test/test.csv')
+train = pd.read_csv('../dataset/train.csv')
+test = pd.read_csv('../dataset/test.csv')
 
 #Listing down the Classes
 list_classes = ["toxic", "severe_toxic", "obscene", "threat", "insult", "identity_hate"]
@@ -100,10 +89,10 @@ model.summary()
 #getting prediction sfor the Submission File
 y_test = model.predict(X_test)
 
-sample_submission = pd.read_csv('jigsaw-toxic-comment-classification-challenge/sample_submission/sample_submission.csv')
+sample_submission = pd.read_csv('../dataset/sample_submission.csv')
 
 sample_submission[list_classes] = y_test
-sample_submission.to_csv('submission1.csv', index = False)
+sample_submission.to_csv('../submission/submission.csv', index = False)
 
 
 
