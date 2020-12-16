@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Toxic Comment Classification</title>
-    </head>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Toxic Comment Classification</title>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=PT+Sans'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
 <body>
-    <form action="{{ url_for('predict') }}" method="POST">
-        <input type="text" name="comment" placeholder="Comment Here...!">
-        <input type="submit" name="submit">
-    </form>
-    {{comment}}
-    <br>
-    <!-- {{ prediction }} -->
+
+    <div class="container">
+        <div class="container__item">
+            <form class="form" action="{{ url_for('predict') }}" method="POST">
+                <input type="text" name="comment" class="form__field" placeholder="Comment Here...!" />
+                <button type="submit" class="btn btn--primary btn--inside uppercase">Predict</button>
+            </form>
+            {{ prediction }}
+        </div>
+    </div>
 </body>
+
 </html>

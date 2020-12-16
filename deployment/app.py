@@ -14,10 +14,10 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     comment = [x for x in request.form.values()]
-    comment = comment[0]
+        
+    #prediction = model.predict(comment)
     
-    #prediction = model.predict(padded_comment)
-    return render_template('index.html', comment = comment)
+    return render_template('index.html', prediction = comment)
 
 if __name__ == "__main__":
     app.run(debug=True)
