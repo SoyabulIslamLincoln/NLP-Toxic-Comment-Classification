@@ -1,37 +1,29 @@
-## Welcome to GitHub Pages
+# NLP-Toxic-Comment-Classification
 
-You can use the [editor on GitHub](https://github.com/SagarJiyani3010/NLP-Toxic-Comment-Classification/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/SagarJiyani3010/NLP-Toxic-Comment-Classification/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<h2>Directory Structure:</h1>
+<pre>
+<b>dataset :</b> This directory contains the dataset
+  sample_sumbmission.csv
+  test.csv
+  test_labels.csv
+  train.csv
+</pre>
+<pre>
+<b>deployment :</b> This directory contains all the files and models are used for deployment
+   models : contains trained models
+   static : contains css, js and other assets
+   templates : contains web pages 
+   app.py : Flask Application
+</pre>
+<pre>
+<b>notebooks :</b> It contains python notebook files which has been used to train model.
+</pre>
+<pre>
+<b>papers :</b> It contains Research paper related to Toxic Comment Classificaion.
+</pre>
+<pre>
+<b>src :</b> It contains python scripts to train the model.
+</pre>
+<pre>
+<b>submission :</b> It contains submission file that is predicted by trained model.
+</pre>
