@@ -46,7 +46,6 @@ plt.hist(totalNumWords,bins = np.arange(0,410,10))
 plt.show()
 
 
-
 #Step1: Adding the first Input Layer (None,200)
 inp = Input(shape=(maxlen, ))
 
@@ -86,11 +85,13 @@ model.fit(X_train, y, batch_size = batch_size, epochs = epochs, validation_split
 
 model.summary()
 
-#getting prediction sfor the Submission File
+# Saving a model for deployment
+model.save('../deployment/models/model.h5')
+
+# Getting predictions for the Submission File
 y_test = model.predict(X_test)
 
 sample_submission = pd.read_csv('../dataset/sample_submission.csv')
-
 sample_submission[list_classes] = y_test
 sample_submission.to_csv('../submission/submission.csv', index = False)
 
