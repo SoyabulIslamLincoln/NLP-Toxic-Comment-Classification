@@ -79,7 +79,7 @@ model.compile(loss="binary_crossentropy",
               metrics=['accuracy'])
 
 batch_size = 32
-epochs = 3
+epochs = 2
 
 model.fit(X_train, y, batch_size = batch_size, epochs = epochs, validation_split=0.1)
 
