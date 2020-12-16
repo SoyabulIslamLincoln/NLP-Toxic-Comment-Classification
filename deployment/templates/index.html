@@ -6,8 +6,10 @@
 <body>
     <form action="{{ url_for('predict') }}" method="POST">
         <input type="text" name="comment" placeholder="Comment Here...!">
-        <input type="submit" name="submit" value="submit">
+        <input type="submit" name="submit">
     </form>
-    {{ pred }}
+    {{comment}}
+    <br>
+    <!-- {{ prediction }} -->
 </body>
 </html>
