@@ -1,6 +1,6 @@
 # NLP-Toxic-Comment-Classification
 
-<h2>Directory Structure:</h1>
+<h2>Directory Structure:</h2>
 <pre>
 <b>dataset :</b> This directory contains the dataset
   sample_sumbmission.csv
