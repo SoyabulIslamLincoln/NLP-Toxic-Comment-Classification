@@ -16,7 +16,7 @@
    app.py : Flask Application
 </pre>
 <pre>
-<b>notebooks :</b> It contains python notebook files which has been used to train model.
+<b>notebooks :</b> It contains python notebook files.
 </pre>
 <pre>
 <b>papers :</b> It contains Research paper related to Toxic Comment Classificaion.
