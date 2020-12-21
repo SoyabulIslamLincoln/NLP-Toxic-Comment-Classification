@@ -2,6 +2,7 @@ import os, sys
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import pickle
 
 from keras.models import Model,Sequential
 from keras.layers import Dense,Embedding, Input , Activation
@@ -87,6 +88,7 @@ model.summary()
 
 # Saving a model for deployment
 model.save('../deployment/models/model.h5')
+pickle.dump(model)
 
 # Getting predictions for the Submission File
 y_test = model.predict(X_test)
