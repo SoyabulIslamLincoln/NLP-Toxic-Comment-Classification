@@ -25,7 +25,7 @@ list_classes = ["toxic", "severe_toxic", "obscene", "threat", "insult", "identit
 y = train[list_classes].values
 
 #Train and test labels
-list_sequences_train = train["comment_text"][:3000]
+list_sequences_train = train["comment_text"]
 list_sequences_test = test["comment_text"]
 
 max_features = 22000
