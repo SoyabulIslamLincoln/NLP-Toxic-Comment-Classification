@@ -2,8 +2,8 @@ import os, sys
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import pickle
 
+import tensorflow as tf
 from keras.models import Model,Sequential
 from keras.layers import Dense,Embedding, Input , Activation
 from keras.layers import LSTM, Bidirectional, GlobalMaxPooling1D, Dropout
@@ -11,6 +11,8 @@ from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 from keras import initializers, optimizers, layers
 from sklearn.metrics import  roc_auc_score
+from sklearn.compose import make_column_transformer
+import joblib
 
 
 #Loading the Train_test data
@@ -23,12 +25,12 @@ list_classes = ["toxic", "severe_toxic", "obscene", "threat", "insult", "identit
 y = train[list_classes].values
 
 #Train and test labels
-list_sequences_train = train["comment_text"]
+list_sequences_train = train["comment_text"][:3000]
 list_sequences_test = test["comment_text"]
 
 max_features = 22000
-tokenizer = Tokenizer(num_words=max_features)
-tokenizer.fit_on_texts(list(list_sequences_train))
+tokenizer = Tokenizer(num_words=max_features, oov_token='OOV')
+train = tokenizer.fit_on_texts(list(list_sequences_train))
 
 #Tokenizing and Indexing the comments
 list_tokenized_train = tokenizer.texts_to_sequences(list_sequences_train)
@@ -39,6 +41,7 @@ list_tokenized_test = tokenizer.texts_to_sequences(list_sequences_test)
 maxlen = 200
 X_train = pad_sequences(list_tokenized_train, maxlen = maxlen)
 X_test = pad_sequences(list_tokenized_test, maxlen = maxlen)
+#X_train = X_train[:1000]
 
 totalNumWords = [len(one_comment) for one_comment in list_tokenized_train]
 
@@ -88,7 +91,6 @@ model.summary()
 
 # Saving a model for deployment
 model.save('../deployment/models/model.h5')
-pickle.dump(model)
 
 # Getting predictions for the Submission File
 y_test = model.predict(X_test)
@@ -96,15 +98,3 @@ y_test = model.predict(X_test)
 sample_submission = pd.read_csv('../dataset/sample_submission.csv')
 sample_submission[list_classes] = y_test
 sample_submission.to_csv('../submission/submission.csv', index = False)
-
-
-
-
-
-
-
-
-
-
-
-
