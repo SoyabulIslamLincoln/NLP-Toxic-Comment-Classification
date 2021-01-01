@@ -32,12 +32,18 @@ def predict():
     comment = [x for x in request.form.values()]
     comment = [preprocess_text(comment[0])]
     
-    tokenizer.fit_on_texts(comment)
     test = tokenizer.texts_to_sequences(comment)
-    final_test = pad_sequences(test, padding='post', maxlen=200)
+    final_test = pad_sequences(test, padding='post', maxlen=128)
 
     prediction = model.predict(final_test)
-    return render_template('index.html', prediction = prediction)
+    toxic = prediction[0,0]
+    severe_toxic = prediction[0,1]
+    obscene = prediction[0,2]
+    threat = prediction[0,3]
+    insult = prediction[0,4]
+    identity_hate = prediction[0,5]
+
+    return render_template('index.html', toxic = toxic, severe_toxic = severe_toxic, obscene = obscene, threat = threat, insult = insult, identity_hate = identity_hate)
 
 if __name__ == "__main__":
     app.run(debug=True)
